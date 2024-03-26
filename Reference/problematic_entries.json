@@ -1,0 +1,31 @@
+{
+    "Reject Bin NE Brace base": {
+        "location": "Reject Bin NE Brace base",
+        "description": "Corrosion and dmg in PC",
+        "latitude": -23.150588888888887,
+        "longitude": 148.39138055555554,
+        "images": {
+            "1": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_1337_20240214084211.JPG",
+            "2": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_1338_20240214084216.JPG",
+            "3": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_1339_20240214084220.JPG",
+            "4": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_1340_20240214084226.JPG",
+            "5": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_1341_20240214084231.JPG",
+            "6": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_1342_20240214084235.JPG"
+        }
+    },
+    "Cv815 LHS Second Gantry": {
+        "location": "Cv815 LHS Second Gantry",
+        "description": "Corrosion and dmg in PC",
+        "latitude": -23.15039722222222,
+        "longitude": 148.39500555555554,
+        "images": {
+            "1": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0458_20240212114555.JPG",
+            "2": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0459_20240212114559.JPG",
+            "3": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0460_20240212114605.JPG",
+            "4": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0461_20240212114616.JPG",
+            "5": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0462_20240212114618.JPG",
+            "6": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0463_20240212114630.JPG",
+            "7": "E:\\Damage_in_protective_coating\\Corrosion and dmg in Pc\\IMG_0464_20240212114643.JPG"
+        }
+    }
+}

@@ -4,6 +4,7 @@
 
 from pydantic import BaseModel , Field
 from typing import Literal,Union
+import pandas as pd
 
 # %% Model for AI training 
 
@@ -160,12 +161,52 @@ class InspectionReport(BaseModel):
             "Risk_Ranking": self.risk_ranking.rank_code,
             "Description_L": self.risk_ranking.likelihood.description,
         }
+    def export_to_xlsx(self, file_name: str):
+        # Convert the custom dictionary to a pandas DataFrame with clearer column names
+        data_dict = self.to_custom_dict()
+        df = pd.DataFrame([data_dict])
+
+        # Define a dictionary with old and new column names
+        column_aliases = {
+            "Cost_r": "repair Cost",
+            "Overdue": "Overdue",
+            "Description": "Structural Issue Description",
+            "Incident": "Potential Incident",
+            "Failure": "Failure Mechanism",
+            "Rec_Action": "Recommended Action",
+            "Shutdown": "Shutdown Requirement",
+            "GI1": "Inspection Date",
+            "eng": "Engineering Requirement",
+            "Responsible": "Responsible Person",
+            "Report_ref": "Report Reference",
+            "Methodology": "Action Methodology",
+            "L_ACTION": "Action Level",
+            "Code": "Action Code",
+            "action": "Action Type",
+            "FACILITY_1": "Component",
+            "lookuplistpicker_13": "Area",
+            "FACILITY": "Facility",
+            "LOCATION_add": "Location Address",
+            "ACTION_STATUS": "Action Status",
+            "Financial": "Financial Consequence",
+            "Health": "Health & Safety Consequence",
+            "JOB_NUM": "PO Number",
+            "DAMAGE2": "Damage Description",
+            "Risk_Ranking": "Risk Ranking Code",
+            "Description_L": "Likelihood Description",
+        }
+
+        # Rename the columns using the aliases
+        df.rename(columns=column_aliases, inplace=True)
+
+        # Export the DataFrame to an Excel file
+        df.to_excel(file_name, index=False)
 
 
 
 # %% Example 
 
-struc_issue_description = '''There is significant section loss on the web of the column, most likely caused by corrosion, coupled with overloading at the connection to the guardrail’s bottom support. This loss of material reduces the column’s ability to resist axial, shear, and bending forces, compromising the structural strength.
+struc_issue_description = '''There is significant section loss on the structural element, most likely caused by corrosion, and material acumulation from the operation. This loss of material reduces the element ability to resist axial, shear, and bending forces, compromising the structural strength.
 '''
 # data extraction
 potential_incident = 'Material loss due to corrosive effects.'# needs to be a list 
@@ -183,7 +224,7 @@ cost = '7860'
 
 structural_info = Structural_info(
     struc_issue_description=struc_issue_description,
-    potential_incident=potential_incident,  # Assuming you want this to be a single item list. Pydantic will validate this.
+    potential_incident=potential_incident,  
     stru_failure_mech=stru_failure_mech,
     action_methodology=action_methodology,
     recomended_act=recomended_act,
@@ -228,4 +269,3 @@ inspection_report = InspectionReport(
 
 
 PDF_dict2 = inspection_report.to_custom_dict()
-

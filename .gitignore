@@ -1,0 +1,11 @@
+# Custom .gitignore
+
+# Directories to ignore
+/protective_coating/
+/Images/
+/grout_damges_2/
+/grout_damges/
+/Foundation Erosion/
+
+# File to ignore
+oai_api_key.json

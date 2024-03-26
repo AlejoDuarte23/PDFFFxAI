@@ -1,0 +1,395 @@
+{
+    "Reject bin RHS Col 2 foundation": {
+        "location": "Reject bin RHS Col 2 foundation",
+        "description": "Grouting fall off",
+        "latitude": -23.150602777777777,
+        "longitude": 148.39133333333334,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting fall off\\IMG_0794.JPG",
+            "2": "E:\\Grouting_damage\\Grouting fall off\\IMG_0795.JPG",
+            "3": "E:\\Grouting_damage\\Grouting fall off\\IMG_0796.JPG"
+        }
+    },
+    "CHPP Ground floor A6 base": {
+        "location": "CHPP Ground floor A6 base",
+        "description": "Grouting fall off",
+        "latitude": -23.151172222222222,
+        "longitude": 148.392025,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting fall off\\IMG_1147.JPG"
+        }
+    },
+    "Reject bin LHS Col 2 foundation": {
+        "location": "Reject bin LHS Col 2 foundation",
+        "description": "Grouting fall off",
+        "latitude": -23.150616666666664,
+        "longitude": 148.39125277777777,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting fall off\\IMG_0805.JPG",
+            "2": "E:\\Grouting_damage\\Grouting fall off\\IMG_0806.JPG",
+            "3": "E:\\Grouting_damage\\Grouting fall off\\IMG_0807.JPG",
+            "4": "E:\\Grouting_damage\\Grouting fall off\\IMG_0808.JPG"
+        }
+    },
+    "Breaker 178 ground lvl North columns (TYP)": {
+        "location": "Breaker 178 ground lvl North columns (TYP)",
+        "description": "Grouting damage",
+        "latitude": -23.14843611111111,
+        "longitude": 148.38946388888888,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_3177_20240222090823.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_3178_20240222090826.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_3179_20240222090839.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_3180_20240222090847.JPG",
+            "5": "E:\\Grouting_damage\\Grouting damage\\IMG_3181_20240222090859.JPG"
+        }
+    },
+    "Breaker 178 ground lvl south columns (TYP)": {
+        "location": "Breaker 178 ground lvl south columns (TYP)",
+        "description": "Grouting damage",
+        "latitude": -23.148469444444444,
+        "longitude": 148.38927777777778,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_3170_20240222090433.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_3171_20240222090439.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_3172_20240222090453.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_3173_20240222090457.JPG",
+            "5": "E:\\Grouting_damage\\Grouting damage\\IMG_3174_20240222090512.JPG",
+            "6": "E:\\Grouting_damage\\Grouting damage\\IMG_3175_20240222090520.JPG",
+            "7": "E:\\Grouting_damage\\Grouting damage\\IMG_3176_20240222090527.JPG"
+        }
+    },
+    "CHPP Ground floor Col D3": {
+        "location": "CHPP Ground floor Col D3",
+        "description": "Grouting damage",
+        "latitude": -23.150752777777775,
+        "longitude": 148.39179444444443,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_2648_20240221091101.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_2649_20240221091105.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_2650_20240221091115.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_2651_20240221091120.JPG",
+            "5": "E:\\Grouting_damage\\Grouting damage\\IMG_2652_20240221091151.JPG",
+            "6": "E:\\Grouting_damage\\Grouting damage\\IMG_2653_20240221091153.JPG",
+            "7": "E:\\Grouting_damage\\Grouting damage\\IMG_2654_20240221091155.JPG",
+            "8": "E:\\Grouting_damage\\Grouting damage\\IMG_2655_20240221091204.JPG"
+        }
+    },
+    "CHPP Ground floor Col E2": {
+        "location": "CHPP Ground floor Col E2",
+        "description": "Grouting damage",
+        "latitude": -23.150666666666666,
+        "longitude": 148.39186944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_2638_20240221090805.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_2639_20240221090814.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_2640_20240221090818.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_2641_20240221090822.JPG",
+            "5": "E:\\Grouting_damage\\Grouting damage\\IMG_2642_20240221090835.JPG"
+        }
+    },
+    "HBF building lvl 1 South End Vessel": {
+        "location": "HBF building lvl 1 South End Vessel",
+        "description": "Grouting damage",
+        "latitude": -23.150888888888886,
+        "longitude": 148.39267222222222,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_2387_20240215140047.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_2388_20240215140049.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_2389_20240215140102.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_2390_20240215140110.JPG"
+        }
+    },
+    "300T bin support str. column B1": {
+        "location": "300T bin support str. column B1",
+        "description": "Grouting damage",
+        "latitude": -23.15005833333333,
+        "longitude": 148.3921222222222,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_1361_20240214085434.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_1362_20240214085452.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_1363_20240214085455.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_1364_20240214085457.JPG",
+            "5": "E:\\Grouting_damage\\Grouting damage\\IMG_1365_20240214085506.JPG",
+            "6": "E:\\Grouting_damage\\Grouting damage\\IMG_1366_20240214085514.JPG"
+        }
+    },
+    "300T bin support str. column A2": {
+        "location": "300T bin support str. column A2",
+        "description": "Grouting damage",
+        "latitude": -23.150202777777775,
+        "longitude": 148.39201944444443,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting damage\\IMG_1355_20240214085259.JPG",
+            "2": "E:\\Grouting_damage\\Grouting damage\\IMG_1356_20240214085301.JPG",
+            "3": "E:\\Grouting_damage\\Grouting damage\\IMG_1357_20240214085307.JPG",
+            "4": "E:\\Grouting_damage\\Grouting damage\\IMG_1358_20240214085312.JPG",
+            "5": "E:\\Grouting_damage\\Grouting damage\\IMG_1359_20240214085323.JPG",
+            "6": "E:\\Grouting_damage\\Grouting damage\\IMG_1360_20240214085325.JPG"
+        }
+    },
+    "Breaker 178 ground lvl south LHS hopper col.": {
+        "location": "Breaker 178 ground lvl south LHS hopper col.",
+        "description": "Improper grouting area",
+        "latitude": -23.1485,
+        "longitude": 148.38920555555555,
+        "images": {
+            "1": "E:\\Grouting_damage\\Improper grouting area\\IMG_3166_20240222090314.JPG",
+            "2": "E:\\Grouting_damage\\Improper grouting area\\IMG_3167_20240222090316.JPG",
+            "3": "E:\\Grouting_damage\\Improper grouting area\\IMG_3168_20240222090321.JPG",
+            "4": "E:\\Grouting_damage\\Improper grouting area\\IMG_3169_20240222090329.JPG"
+        }
+    },
+    "Tunnel 206 LHS West entry": {
+        "location": "Tunnel 206 LHS West entry",
+        "description": "Cable rack support no grouting",
+        "latitude": -23.149477777777776,
+        "longitude": 148.38863333333333,
+        "images": {
+            "1": "E:\\Grouting_damage\\Cable rack support no grouting\\IMG_3040_20240222071354.JPG",
+            "2": "E:\\Grouting_damage\\Cable rack support no grouting\\IMG_3041_20240222071357.JPG",
+            "3": "E:\\Grouting_damage\\Cable rack support no grouting\\IMG_3042_20240222071359.JPG",
+            "4": "E:\\Grouting_damage\\Cable rack support no grouting\\IMG_3043_20240222071425.JPG",
+            "5": "E:\\Grouting_damage\\Cable rack support no grouting\\IMG_3044_20240222071427.JPG"
+        }
+    },
+    "Tunnel 206 LHS Feeder Support Pedestals": {
+        "location": "Tunnel 206 LHS Feeder Support Pedestals",
+        "description": "Concrete delaminatinon & grouting dmg",
+        "latitude": -23.151838888888886,
+        "longitude": 148.39187222222222,
+        "images": {
+            "1": "E:\\Grouting_damage\\Concrete delaminatinon & grouting dmg\\IMG_3002_20240222070105.JPG",
+            "2": "E:\\Grouting_damage\\Concrete delaminatinon & grouting dmg\\IMG_3003_20240222070110.JPG",
+            "3": "E:\\Grouting_damage\\Concrete delaminatinon & grouting dmg\\IMG_3004_20240222070112.JPG",
+            "4": "E:\\Grouting_damage\\Concrete delaminatinon & grouting dmg\\IMG_3005_20240222070124.JPG",
+            "5": "E:\\Grouting_damage\\Concrete delaminatinon & grouting dmg\\IMG_3006_20240222070129.JPG"
+        }
+    },
+    "Tunnel CV815 RHS trestle 21 per": {
+        "location": "Tunnel CV815 RHS trestle 21 per",
+        "description": "Grouting broke, ped agg exposed",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting broke, ped agg exposed\\IMG_0268.JPG",
+            "2": "E:\\Grouting_damage\\Grouting broke, ped agg exposed\\IMG_0269.JPG"
+        }
+    },
+    "Tunnel CV815 RHS trestle 22 ped": {
+        "location": "Tunnel CV815 RHS trestle 22 ped",
+        "description": "Grouting broke, ped agg exposed",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting broke, ped agg exposed\\IMG_0270.JPG"
+        }
+    },
+    "HBF Building Ground lvl bin C5-B4": {
+        "location": "HBF Building Ground lvl bin C5-B4",
+        "description": "Grouting broken, steel corroded",
+        "latitude": -23.150755555555556,
+        "longitude": 148.39280277777777,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting broken, steel corroded\\IMG_1487.JPG",
+            "2": "E:\\Grouting_damage\\Grouting broken, steel corroded\\IMG_1488.JPG",
+            "3": "E:\\Grouting_damage\\Grouting broken, steel corroded\\IMG_1489.JPG",
+            "4": "E:\\Grouting_damage\\Grouting broken, steel corroded\\IMG_1490.JPG",
+            "5": "E:\\Grouting_damage\\Grouting broken, steel corroded\\IMG_1491.JPG"
+        }
+    },
+    "CV216 LHS tr4>": {
+        "location": "CV216 LHS tr4>",
+        "description": "Grouting cracked and fallen off",
+        "latitude": -23.149880555555555,
+        "longitude": 148.3909361111111,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grouting cracked and fallen off\\IMG_0993.JPG",
+            "2": "E:\\Grouting_damage\\Grouting cracked and fallen off\\IMG_0994.JPG",
+            "3": "E:\\Grouting_damage\\Grouting cracked and fallen off\\IMG_0995.JPG",
+            "4": "E:\\Grouting_damage\\Grouting cracked and fallen off\\IMG_0996.JPG",
+            "5": "E:\\Grouting_damage\\Grouting cracked and fallen off\\IMG_0997.JPG"
+        }
+    },
+    "HBF building lv1 West Cv": {
+        "location": "HBF building lv1 West Cv",
+        "description": "Supports: 1&2 grouting damage",
+        "latitude": -23.151038888888888,
+        "longitude": 148.39247777777777,
+        "images": {
+            "1": "E:\\Grouting_damage\\Supports_ 1&2 grouting damage\\IMG_2340_20240215133039.JPG",
+            "2": "E:\\Grouting_damage\\Supports_ 1&2 grouting damage\\IMG_2341_20240215133043.JPG",
+            "3": "E:\\Grouting_damage\\Supports_ 1&2 grouting damage\\IMG_2342_20240215133048.JPG",
+            "4": "E:\\Grouting_damage\\Supports_ 1&2 grouting damage\\IMG_2343_20240215133051.JPG",
+            "5": "E:\\Grouting_damage\\Supports_ 1&2 grouting damage\\IMG_2344_20240215133057.JPG"
+        }
+    },
+    "HBF building West Pipe support #1": {
+        "location": "HBF building West Pipe support #1",
+        "description": "Flange bent & Grouting damage",
+        "latitude": -23.150783333333333,
+        "longitude": 148.39254444444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Flange bent & Grouting damage\\IMG_2372_20240215135226.JPG",
+            "2": "E:\\Grouting_damage\\Flange bent & Grouting damage\\IMG_2373_20240215135229.JPG",
+            "3": "E:\\Grouting_damage\\Flange bent & Grouting damage\\IMG_2374_20240215135232.JPG",
+            "4": "E:\\Grouting_damage\\Flange bent & Grouting damage\\IMG_2375_20240215135246.JPG",
+            "5": "E:\\Grouting_damage\\Flange bent & Grouting damage\\IMG_2376_20240215135249.JPG",
+            "6": "E:\\Grouting_damage\\Flange bent & Grouting damage\\IMG_2377_20240215135251.JPG"
+        }
+    },
+    "CHPP ground floor": {
+        "location": "CHPP ground floor",
+        "description": "Col K2: Grouting damage",
+        "latitude": -23.150816666666664,
+        "longitude": 148.39251944444445,
+        "images": {
+            "1": "E:\\Grouting_damage\\Col K2_ Grouting damage\\IMG_1881_20240215072255.JPG",
+            "2": "E:\\Grouting_damage\\Col K2_ Grouting damage\\IMG_1882_20240215072302.JPG",
+            "3": "E:\\Grouting_damage\\Col K2_ Grouting damage\\IMG_1883_20240215072312.JPG",
+            "4": "E:\\Grouting_damage\\Col K2_ Grouting damage\\IMG_1884_20240215072318.JPG"
+        }
+    },
+    "Cv216 RHS Gantry 5 PFC supports": {
+        "location": "Cv216 RHS Gantry 5 PFC supports",
+        "description": "Corrosion and dmg in grouting",
+        "latitude": -23.149897222222222,
+        "longitude": 148.3907361111111,
+        "images": {
+            "1": "E:\\Grouting_damage\\Corrosion and dmg in grouting\\IMG_1591_20240214102724.JPG",
+            "2": "E:\\Grouting_damage\\Corrosion and dmg in grouting\\IMG_1592_20240214102726.JPG",
+            "3": "E:\\Grouting_damage\\Corrosion and dmg in grouting\\IMG_1593_20240214102736.JPG",
+            "4": "E:\\Grouting_damage\\Corrosion and dmg in grouting\\IMG_1594_20240214102748.JPG",
+            "5": "E:\\Grouting_damage\\Corrosion and dmg in grouting\\IMG_1595_20240214102813.JPG",
+            "6": "E:\\Grouting_damage\\Corrosion and dmg in grouting\\IMG_1596_20240214102831.JPG"
+        }
+    },
+    "CV715 GTU support bases": {
+        "location": "CV715 GTU support bases",
+        "description": "Missing grouting & conc. Erosion",
+        "latitude": -23.150713888888887,
+        "longitude": 148.39143055555556,
+        "images": {
+            "1": "E:\\Grouting_damage\\Missing grouting & conc. Erosion\\IMG_1256_20240214081616.JPG",
+            "2": "E:\\Grouting_damage\\Missing grouting & conc. Erosion\\IMG_1257_20240214081618.JPG",
+            "3": "E:\\Grouting_damage\\Missing grouting & conc. Erosion\\IMG_1258_20240214081623.JPG",
+            "4": "E:\\Grouting_damage\\Missing grouting & conc. Erosion\\IMG_1259_20240214081625.JPG",
+            "5": "E:\\Grouting_damage\\Missing grouting & conc. Erosion\\IMG_1260_20240214081630.JPG",
+            "6": "E:\\Grouting_damage\\Missing grouting & conc. Erosion\\IMG_1261_20240214081644.JPG"
+        }
+    },
+    "TLO Sample Station - bottom conveyor": {
+        "location": "TLO Sample Station - bottom conveyor",
+        "description": "Damage in RHS grouting",
+        "latitude": -23.150430555555555,
+        "longitude": 148.39519166666665,
+        "images": {
+            "1": "E:\\Grouting_damage\\Damage in RHS grouting\\IMG_0424_20240212102026.JPG",
+            "2": "E:\\Grouting_damage\\Damage in RHS grouting\\IMG_0425_20240212102028.JPG",
+            "3": "E:\\Grouting_damage\\Damage in RHS grouting\\IMG_0426_20240212102032.JPG",
+            "4": "E:\\Grouting_damage\\Damage in RHS grouting\\IMG_0427_20240212102036.JPG",
+            "5": "E:\\Grouting_damage\\Damage in RHS grouting\\IMG_0428_20240212102045.JPG",
+            "6": "E:\\Grouting_damage\\Damage in RHS grouting\\IMG_0429_20240212102048.JPG"
+        }
+    },
+    "Tunnel CV815 RHS trestles marked 38-44": {
+        "location": "Tunnel CV815 RHS trestles marked 38-44",
+        "description": "Grout fall off, ped cracked",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grout fall off, ped cracked\\IMG_0297.JPG",
+            "2": "E:\\Grouting_damage\\Grout fall off, ped cracked\\IMG_0298.JPG",
+            "3": "E:\\Grouting_damage\\Grout fall off, ped cracked\\IMG_0299.JPG"
+        }
+    },
+    "Tunnel CV815 RHS trestle marked 51": {
+        "location": "Tunnel CV815 RHS trestle marked 51",
+        "description": "Grout fell off",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grout fell off\\IMG_0287.JPG"
+        }
+    },
+    "Tunnel CV815 RHS trestle marked 51-44": {
+        "location": "Tunnel CV815 RHS trestle marked 51-44",
+        "description": "Grout fell off",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grout fell off\\IMG_0288.JPG",
+            "2": "E:\\Grouting_damage\\Grout fell off\\IMG_0289.JPG",
+            "3": "E:\\Grouting_damage\\Grout fell off\\IMG_0290.JPG",
+            "4": "E:\\Grouting_damage\\Grout fell off\\IMG_0291.JPG",
+            "5": "E:\\Grouting_damage\\Grout fell off\\IMG_0292.JPG"
+        }
+    },
+    "Tunnel CV815 trestle @ mark 7": {
+        "location": "Tunnel CV815 trestle @ mark 7",
+        "description": "Grout fell off",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grout fell off\\IMG_0281.JPG"
+        }
+    },
+    "Tunnel CV815 trestle @ mark 10": {
+        "location": "Tunnel CV815 trestle @ mark 10",
+        "description": "Grout fell off",
+        "latitude": -23.15043888888889,
+        "longitude": 148.39491944444444,
+        "images": {
+            "1": "E:\\Grouting_damage\\Grout fell off\\IMG_0280.JPG"
+        }
+    },
+    "Cv815 - NE entry PFC support": {
+        "location": "Cv815 - NE entry PFC support",
+        "description": "PFC #41: grout damaged",
+        "latitude": -23.14964722222222,
+        "longitude": 148.39220555555553,
+        "images": {
+            "1": "E:\\Grouting_damage\\PFC #41_ grout damaged\\IMG_0637_20240212130103.JPG",
+            "2": "E:\\Grouting_damage\\PFC #41_ grout damaged\\IMG_0638_20240212130117.JPG",
+            "3": "E:\\Grouting_damage\\PFC #41_ grout damaged\\IMG_0639_20240212130122.JPG",
+            "4": "E:\\Grouting_damage\\PFC #41_ grout damaged\\IMG_0640_20240212130126.JPG",
+            "5": "E:\\Grouting_damage\\PFC #41_ grout damaged\\IMG_0641_20240212130129.JPG",
+            "6": "E:\\Grouting_damage\\PFC #41_ grout damaged\\IMG_0642_20240212130131.JPG",
+            "7": "E:\\Grouting_damage\\PFC #36_ grout damaged\\IMG_0632_20240212125950.JPG",
+            "8": "E:\\Grouting_damage\\PFC #36_ grout damaged\\IMG_0633_20240212125957.JPG",
+            "9": "E:\\Grouting_damage\\PFC #36_ grout damaged\\IMG_0634_20240212130001.JPG",
+            "10": "E:\\Grouting_damage\\PFC #36_ grout damaged\\IMG_0635_20240212130002.JPG",
+            "11": "E:\\Grouting_damage\\PFC #36_ grout damaged\\IMG_0636_20240212130007.JPG",
+            "12": "E:\\Grouting_damage\\PFC #32_ grout damaged\\IMG_0627_20240212125843.JPG",
+            "13": "E:\\Grouting_damage\\PFC #32_ grout damaged\\IMG_0628_20240212125846.JPG",
+            "14": "E:\\Grouting_damage\\PFC #32_ grout damaged\\IMG_0629_20240212125851.JPG",
+            "15": "E:\\Grouting_damage\\PFC #32_ grout damaged\\IMG_0630_20240212125855.JPG",
+            "16": "E:\\Grouting_damage\\PFC #32_ grout damaged\\IMG_0631_20240212125858.JPG",
+            "17": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0619_20240212125713.JPG",
+            "18": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0620_20240212125719.JPG",
+            "19": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0621_20240212125726.JPG",
+            "20": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0622_20240212125728.JPG",
+            "21": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0623_20240212125731.JPG",
+            "22": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0624_20240212125735.JPG",
+            "23": "E:\\Grouting_damage\\PFC #27_ grout damaged\\IMG_0625_20240212125738.JPG",
+            "24": "E:\\Grouting_damage\\PFC #24_ grout damaged\\IMG_0614_20240212125606.JPG",
+            "25": "E:\\Grouting_damage\\PFC #24_ grout damaged\\IMG_0615_20240212125612.JPG",
+            "26": "E:\\Grouting_damage\\PFC #24_ grout damaged\\IMG_0616_20240212125615.JPG",
+            "27": "E:\\Grouting_damage\\PFC #24_ grout damaged\\IMG_0617_20240212125620.JPG",
+            "28": "E:\\Grouting_damage\\PFC #24_ grout damaged\\IMG_0618_20240212125623.JPG",
+            "29": "E:\\Grouting_damage\\PFC #23_ grout damaged\\IMG_0610_20240212125530.JPG",
+            "30": "E:\\Grouting_damage\\PFC #23_ grout damaged\\IMG_0611_20240212125538.JPG",
+            "31": "E:\\Grouting_damage\\PFC #23_ grout damaged\\IMG_0612_20240212125542.JPG",
+            "32": "E:\\Grouting_damage\\PFC #23_ grout damaged\\IMG_0613_20240212125546.JPG",
+            "33": "E:\\Grouting_damage\\PFC #20_ grout damaged\\IMG_0605_20240212125420.JPG",
+            "34": "E:\\Grouting_damage\\PFC #20_ grout damaged\\IMG_0606_20240212125431.JPG",
+            "35": "E:\\Grouting_damage\\PFC #20_ grout damaged\\IMG_0607_20240212125433.JPG",
+            "36": "E:\\Grouting_damage\\PFC #20_ grout damaged\\IMG_0608_20240212125443.JPG",
+            "37": "E:\\Grouting_damage\\PFC #20_ grout damaged\\IMG_0609_20240212125446.JPG",
+            "38": "E:\\Grouting_damage\\PFC #19_ grout damaged\\IMG_0601_20240212125321.JPG",
+            "39": "E:\\Grouting_damage\\PFC #19_ grout damaged\\IMG_0602_20240212125329.JPG",
+            "40": "E:\\Grouting_damage\\PFC #19_ grout damaged\\IMG_0603_20240212125333.JPG",
+            "41": "E:\\Grouting_damage\\PFC #19_ grout damaged\\IMG_0604_20240212125347.JPG"
+        }
+    }
+}

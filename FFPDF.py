@@ -1,10 +1,10 @@
+import os
 import pdfrw
-
+import json 
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import landscape, A3
 from Examples import PDF_dict2
 from typing import List,Dict
-
 
 
 def create_overlay_pdf(image_paths:List, overlay_pdf_path:str, top_left_x:float,
@@ -43,8 +43,11 @@ def fill_fields(fields:Dict,filled_output_dir:str,template:str='moderate_templat
                 font_size = pdfrw.objects.pdfstring.PdfString.encode('0 g /Arial 11 Tf')
                 input_pdf.Root.AcroForm.Fields[x].update({'/DA': font_size})
 
+
             if key == 'Risk_Ranking':
                 print('rating' , fields[key])
+            if key == 'sequenceNumber':
+                input_pdf.Root.AcroForm.Fields[x].update(pdfrw.PdfDict(V= str(fields[key])))
     writer = pdfrw.PdfWriter()
     writer.write(filled_output_dir, input_pdf)
     return input_pdf
@@ -83,28 +86,109 @@ def main(fields:Dict,overlay_dir:str,template_dir:str,filled_output_dir:str,
 
 
 
-if __name__ == '__main__':
+def process_reports_and_generate_pdfs(final_reports_data, output_folder,template_dir):
+    # Define subfolders for overlay and filled PDFs within the output folder
+    overlay_folder = os.path.join(output_folder, 'overlay')
+    filled_folder = os.path.join(output_folder, 'filled')
 
-    #  Export pydantic model in Dict
-    fields = PDF_dict2
-    # image list
-    image_paths = [
-    r'images\IMG_3369_20240222121404.JPG',
-    r'images\IMG_3370_20240222121408.JPG',
-    r'images\IMG_3371_20240222121413.JPG',
-    ]
-    # image settings
-    top_left_x = 200  
-    top_left_y = 50  
-    width = 250      
-    height = 300     
-    spacing = 50   
+    # Ensure the output and subfolders exist
+    for folder in [output_folder, overlay_folder, filled_folder]:
+        if not os.path.exists(folder):
+            os.makedirs(folder)
     
-    # filled pdf name
-    filled_output_dir = 'filled_pdf.pdf'
-    overlay_dir = 'overlay.pdf'
-    merge_dir = 'report_example.pdf'
-    template_dir =r"Templates\moderate_template.pdf"
-    main(fields,overlay_dir,template_dir,filled_output_dir,
-        merge_dir,image_paths,top_left_x,top_left_y,width,
-        height,spacing)
+    for report_id, report_data in final_reports_data.items():
+        # Extract report and image data
+        report = report_data['report']
+        images = report_data['images']
+
+        # Prepare image paths list
+        image_paths = [images[key] for key in sorted(images.keys())[:3]]  # Take first 3 images, if available
+
+        # Skip this entry if there are not at least 3 images
+        if len(image_paths) < 3:
+            print(f"Skipping report {report_id} due to insufficient images.")
+            continue
+
+        # Define PDF output paths within their respective subfolders
+        filled_output_dir = os.path.join(filled_folder, f'filled_report_{report_id}.pdf')
+        overlay_dir = os.path.join(overlay_folder, f'overlay_{report_id}.pdf')
+        merge_dir = os.path.join(output_folder, f'report_{report_id}.pdf')
+
+        # Image settings
+        top_left_x = 240
+        top_left_y = 50
+        width = 280
+        height = 300
+        spacing = 50
+
+        # Call the main function with prepared parameters
+        main(report, overlay_dir, template_dir, filled_output_dir, merge_dir, image_paths, top_left_x, top_left_y, width, height, spacing)
+
+def load_inspection_reports_from_json(filepath):
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+    return data
+
+
+
+
+if __name__ == '__main__':
+    # Assuming the file is named 'final_inspection_reports.json'
+    filepath = 'grouting_final_inspection_reports_excel.json'
+    final_reports_data = load_inspection_reports_from_json(filepath)
+    output_folder = r'grout_damges_2'
+    template_dir = r"Templates\moderate_template.pdf"  
+    process_reports_and_generate_pdfs(final_reports_data, output_folder,template_dir)
+
+
+
+
+
+
+# moderate
+# erosion 
+
+
+# moderate
+# grouting
+
+
+# moderate
+# pedestal 
+
+# moderate
+# cracks
+
+
+# moderate
+# damage in PC
+
+
+# minor
+# protective coating
+
+
+
+    # #  Export pydantic model in Dict
+    # fields = PDF_dict2
+    # # image list
+    # image_paths = [
+    # r'images\IMG_3369_20240222121404.JPG',
+    # r'images\IMG_3370_20240222121408.JPG',
+    # r'images\IMG_3371_20240222121413.JPG',
+    # ]
+    # # image settings
+    # top_left_x = 200  
+    # top_left_y = 50  
+    # width = 250      
+    # height = 300     
+    # spacing = 50   
+    
+    # # filled pdf name
+    # filled_output_dir = 'filled_pdf.pdf'
+    # overlay_dir = 'overlay.pdf'
+    # merge_dir = 'report_example.pdf'
+    # template_dir =r"Templates\moderate_template.pdf"
+    # main(fields,overlay_dir,template_dir,filled_output_dir,
+    #     merge_dir,image_paths,top_left_x,top_left_y,width,
+    #     height,spacing)
