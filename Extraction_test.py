@@ -1,32 +1,27 @@
-from openai import OpenAI
 import instructor 
-import json 
 import os 
+
+from openai import OpenAI
 from typing import Dict,Iterable
 from Classes import Location
 
-with open('oai_api_key.json', 'r') as file:
-    data = json.load(file)
-
-os.environ["OPENAI_API_KEY"] = data["OPENAI_API_KEY"]
+os.environ["OPENAI_API_KEY"] = ""
 client = instructor.patch(OpenAI())
 
 
 def gextraction(image_metada:Dict)->Location:
     return client.chat.completions.create(
-        model="gpt-4-0125-preview",
+        model="gpt-3.5-turbo-0125",
         messages=[
-            {
-                "role": "system",
-                "content": f" the metada of the image is  : {image_metada}",
-            },
+
             {
                 "role": "user",
-                "content": f"Help me extracting the locations and components from the image metada",
+                "content": f"Help me extracting the locations and components from the image metada. the metada of the image is /n :  {image_metada} ",
             },
             
         ],
+    temperature=0.1,
     response_model=Iterable[Location],
     stream = True,
-    max_retries = 2
+    max_retries = 6
     ) 

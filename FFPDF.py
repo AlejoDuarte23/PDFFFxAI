@@ -3,8 +3,10 @@ import pdfrw
 import json 
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import landscape, A3
-from Examples import PDF_dict2
 from typing import List,Dict
+
+from concurrent.futures import ProcessPoolExecutor
+
 
 
 def create_overlay_pdf(image_paths:List, overlay_pdf_path:str, top_left_x:float,
@@ -87,6 +89,13 @@ def main(fields:Dict,overlay_dir:str,template_dir:str,filled_output_dir:str,
 
 
 def process_reports_and_generate_pdfs(final_reports_data, output_folder,template_dir):
+
+    report_template_maping = {
+        'Major':r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\major_template.pdf',
+        'Moderate': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\moderate_template.pdf',
+        'Minor': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\low_template.pdf',
+        'Extreme': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\extreme_template.pdf'
+    }
     # Define subfolders for overlay and filled PDFs within the output folder
     overlay_folder = os.path.join(output_folder, 'overlay')
     filled_folder = os.path.join(output_folder, 'filled')
@@ -115,80 +124,99 @@ def process_reports_and_generate_pdfs(final_reports_data, output_folder,template
         merge_dir = os.path.join(output_folder, f'report_{report_id}.pdf')
 
         # Image settings
-        top_left_x = 240
+        top_left_x = 208
         top_left_y = 50
-        width = 280
+        width = 275
         height = 300
         spacing = 50
-
+        template_dir = report_template_maping[report['Risk_consequence']]
         # Call the main function with prepared parameters
         main(report, overlay_dir, template_dir, filled_output_dir, merge_dir, image_paths, top_left_x, top_left_y, width, height, spacing)
+
+def process_single_report(report_id, report_data, output_folder, template_dir):
+    """
+    Process a single report and generate PDFs. This function is designed to be run in parallel.
+    """
+    report_template_maping = {
+        'Major': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\major_template.pdf',
+        'Moderate': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\moderate_template.pdf',
+        'Minor': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\low_template.pdf',
+        'Extreme': r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\extreme_template.pdf',
+
+    }
+
+    # Define subfolders for overlay and filled PDFs within the output folder
+    overlay_folder = os.path.join(output_folder, 'overlay')
+    filled_folder = os.path.join(output_folder, 'filled')
+
+    # Ensure the output and subfolders exist
+    for folder in [output_folder, overlay_folder, filled_folder]:
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+    # Extract report and image data
+    report = report_data['report']
+    images = report_data['images']
+
+    # Prepare image paths list
+    image_paths = [images[key] for key in sorted(images.keys())[:3]]  # Take first 3 images, if available
+
+    # Skip this entry if there are not at least 3 images
+    if len(image_paths) < 3:
+        print(f"Skipping report {report_id} due to insufficient images.")
+        return
+
+    # Define PDF output paths within their respective subfolders
+    filled_output_dir = os.path.join(filled_folder, f'filled_report_{report_id}.pdf')
+    overlay_dir = os.path.join(overlay_folder, f'overlay_{report_id}.pdf')
+    merge_dir = os.path.join(output_folder, f'report_{report_id}.pdf')
+
+    # Image settings
+    top_left_x = 208
+    top_left_y = 50
+    width = 275
+    height = 300
+    spacing = 50
+    template_dir = report_template_maping[report['Risk_consequence']]
+
+    # Call the main function with prepared parameters
+    main(report, overlay_dir, template_dir, filled_output_dir, merge_dir, image_paths, top_left_x, top_left_y, width, height, spacing)
+
+def process_reports_and_generate_pdfs_parallel(final_reports_data, output_folder, template_dir):
+    """
+    Process reports and generate PDFs PARALLEL CHANGE MAX WORKERS FOR MORE POWER ! .
+    """
+    with ProcessPoolExecutor(max_workers=5) as executor:
+        futures = []
+        for report_id, report_data in final_reports_data.items():
+            futures.append(executor.submit(process_single_report, report_id, report_data, output_folder, template_dir))
+        
+        # wait all this shit 
+        for future in futures:
+            future.result()  
+
+
 
 def load_inspection_reports_from_json(filepath):
     with open(filepath, 'r') as f:
         data = json.load(f)
-    return data
+    return data     
 
 
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
+
+    #%% Grouting damage 
     # Assuming the file is named 'final_inspection_reports.json'
-    filepath = 'grouting_final_inspection_reports_excel.json'
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\J450ARP001_Extreme_Major_Defects.json'
     final_reports_data = load_inspection_reports_from_json(filepath)
-    output_folder = r'grout_damges_2'
-    template_dir = r"Templates\moderate_template.pdf"  
-    process_reports_and_generate_pdfs(final_reports_data, output_folder,template_dir)
+    output_folder = r'C:\Users\ADMIN\Documents\PDFFFxAI\Complete_PDFs'
+    template_dir = r'C:\Users\ADMIN\Documents\PDFFFxAI\Templates\major_template.pdf'  
 
-
-
-
-
-
-# moderate
-# erosion 
-
-
-# moderate
-# grouting
-
-
-# moderate
-# pedestal 
-
-# moderate
-# cracks
-
-
-# moderate
-# damage in PC
-
-
-# minor
-# protective coating
-
-
-
-    # #  Export pydantic model in Dict
-    # fields = PDF_dict2
-    # # image list
-    # image_paths = [
-    # r'images\IMG_3369_20240222121404.JPG',
-    # r'images\IMG_3370_20240222121408.JPG',
-    # r'images\IMG_3371_20240222121413.JPG',
-    # ]
-    # # image settings
-    # top_left_x = 200  
-    # top_left_y = 50  
-    # width = 250      
-    # height = 300     
-    # spacing = 50   
+    process_reports_and_generate_pdfs_parallel(final_reports_data, output_folder, template_dir)
     
-    # # filled pdf name
-    # filled_output_dir = 'filled_pdf.pdf'
-    # overlay_dir = 'overlay.pdf'
-    # merge_dir = 'report_example.pdf'
-    # template_dir =r"Templates\moderate_template.pdf"
-    # main(fields,overlay_dir,template_dir,filled_output_dir,
-    #     merge_dir,image_paths,top_left_x,top_left_y,width,
-    #     height,spacing)
+
+    #process_reports_and_generate_pdfs(final_reports_data, output_folder,template_dir)
+
+

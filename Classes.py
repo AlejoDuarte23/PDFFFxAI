@@ -2,7 +2,6 @@ from pydantic import BaseModel , Field
 from typing import Literal,Union,Dict,Iterable,Optional,List
 import pandas as pd 
 
-# %% Model for AI training 
 
 
 class Actions(BaseModel):
@@ -53,6 +52,13 @@ class Minor(BaseModel):
     des_financial: str = Field(default='''AUD $1,000 - $10,000''')
 
 
+class Extreme(BaseModel):
+    des_health_sft: str = Field(default='''Multiple Fatalities''')
+    des_damage: str = Field(default='''Future operations at site seriously affected. Urgent corrective/remedial action Loss of production > 6 months''')
+    des_financial: str = Field(default='''> AUD $500,000''')
+
+
+
 class LikelihoodRating(BaseModel):
     rating: Literal['A', 'B', 'C', 'D', 'E']
     description: str = Field(default_factory=str)
@@ -71,7 +77,7 @@ class LikelihoodRating(BaseModel):
 
 class RiskRanking(BaseModel):
     likelihood: LikelihoodRating
-    consequence: Union[Major, Moderate, Minor]
+    consequence: Union[Major, Moderate, Minor,Extreme]
     rank_code: str = Field(default_factory=str)
 
     class Config:
@@ -81,8 +87,8 @@ class RiskRanking(BaseModel):
         super().__init__(**data)
         # Define a mapping from likelihood to row and consequence to column
         likelihood_map = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
-        consequence_map = {Major: 3, Moderate: 2, Minor: 1}
-        consequence_map_str = { 3:'Major', 2:'Moderate', 1:'Low'}
+        consequence_map = {Major: 3, Moderate: 2, Minor: 1,Extreme:4}
+        consequence_map_str = { 3:'Major', 2:'Moderate', 1:'Low',4:'Extreme'}
 
                 
         risk_matrix = [
@@ -125,7 +131,7 @@ class Images(BaseModel):
 
 class InspectionReport(BaseModel):
     id: Optional[int] 
-    seq_number :Optional[int] 
+    seq_number :Optional[str] 
     actions: Actions
     location: Location
     risk_ranking: RiskRanking
@@ -135,7 +141,7 @@ class InspectionReport(BaseModel):
     images:Optional[Images]
 
     def to_custom_dict(self) -> dict:
-        consequence_map = {Major: 'Major', Moderate: 'Moderate', Minor: 'Minor'}
+        consequence_map = {Major: 'Major', Moderate: 'Moderate', Minor: 'Minor',Extreme:'Extreme'}
 
         print('**',self.risk_ranking.consequence,type(self.risk_ranking.consequence))
         return {
@@ -282,12 +288,7 @@ class CompleteReport(BaseModel):
             
         }
 
-
-
-        # df.drop(columns=["DAMAGE2", "Description_L","Risk_Ranking"])
-        # Rename the columns using the aliases
         df.rename(columns=column_aliases, inplace=True)
         df.drop(columns=["Damage Description","Risk Ranking Code","Likelihood Description"],inplace=True)
-        # Export the DataFrame to an Excel file
         df.to_excel(file_name, index=False)
 

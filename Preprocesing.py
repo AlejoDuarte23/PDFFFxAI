@@ -1,38 +1,8 @@
 import os
 import json
-import shutil
+
 from PIL import Image
-
-
-from typing import Dict, List, Tuple
-from fuzzywuzzy import process
-
-def find_matching_keys(json_data: Dict, search_term: str, fuzziness_threshold: int = 90) -> Dict:
-    """
-    Searches for matching keys in a JSON structure based on a fuzzy search term for description,
-    with adjustable fuzziness control.
-    
-    Args:
-    - json_data: The JSON structure containing the data.
-    - search_term: The search term to find matching descriptions.
-    - fuzziness_threshold: The minimum match score from 0 to 100 to consider a match (default is 90).
-    
-    Returns:
-    - A dictionary with the structure:
-      {key: {'location': str, 'description': str, 'latitude': float, 'longitude': float, 'images': {int: str}}}
-    """
-    final_dict = {}
-    for key, value in json_data.items():
-        for item in value:
-            match_ratio = process.extractOne(search_term, [item['description']], score_cutoff=fuzziness_threshold)
-            if match_ratio:
-                if key not in final_dict:
-                    final_dict[key] = {'location': item['location'], 'description': item['description'],
-                                       'latitude': item['latitude'], 'longitude': item['longitude'], 'images': {}}
-                img_count = len(final_dict[key]['images']) + 1
-                final_dict[key]['images'][img_count] = item['path']
-    return final_dict
-
+from typing import Dict
 
 
 def get_decimal_from_dms(dms, ref):
@@ -45,6 +15,7 @@ def get_decimal_from_dms(dms, ref):
 def get_comments_info(image_path:str) -> dict:
     with Image.open(image_path) as img:
         info = img._getexif()
+        print(image_path)
         if 37510 not in info:
             return {}
 
@@ -115,9 +86,70 @@ if False:
 
 if False:
     # create the folder 
-    base_path = "E:\Grouting_damage"
+    base_path = r"D:\YLY Defect Groups\Grouting_damage"
     info_dict = create_info_dict(base_path)
     print(json.dumps(info_dict, indent=4))
 
-    output_file_path = 'grout_damage.json'
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Grouting_damage\grout_damage.json'
     save_info_dict(info_dict,output_file_path)
+
+
+
+
+if False:
+    # create the folder 
+    base_path = r"D:\YLY Defect Groups\Erosion"
+    info_dict = create_info_dict(base_path)
+    print(json.dumps(info_dict, indent=4))
+
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Soil_erosion\Soil_erosion.json'
+    save_info_dict(info_dict,output_file_path)
+
+
+if False:
+    # create the folder 
+    base_path = r"D:\YLY Defect Groups\Concrete spalling"
+    info_dict = create_info_dict(base_path)
+    print(json.dumps(info_dict, indent=4))
+
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Spalling\Spalling.json'
+    save_info_dict(info_dict,output_file_path)
+
+
+if False:
+    # create the folder 
+    base_path = r"D:\YLY Defect Groups\Concrete cracking"
+    info_dict = create_info_dict(base_path)
+    print(json.dumps(info_dict, indent=4))
+
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\concrete_cracks\con_cracks_images.json'
+    save_info_dict(info_dict,output_file_path)
+
+
+if False:
+    # create the folder 
+    base_path = r"D:\YLY Defect Groups\Permanent deformation"
+    info_dict = create_info_dict(base_path)
+    print(json.dumps(info_dict, indent=4))
+
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\permanent_deformation\permanent_deformation_images.json'
+    save_info_dict(info_dict,output_file_path)
+
+if False:
+    # create the folder 
+    base_path = r"D:\YLY Defect Groups\Section loss"
+    info_dict = create_info_dict(base_path)
+    print(json.dumps(info_dict, indent=4))
+
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Corrosion_sect_loss\Corrosion_sect_loss.json'
+    save_info_dict(info_dict,output_file_path)
+
+if False:
+    # create the folder 
+    base_path = r"D:\YLY Defect Groups\Other"
+    info_dict = create_info_dict(base_path)
+    print(json.dumps(info_dict, indent=4))
+
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Defects_Groups\other\other_images.json'
+    save_info_dict(info_dict,output_file_path)
+

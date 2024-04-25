@@ -4,7 +4,7 @@ import json
 import numpy as np
 import pickle
 from typing import Dict, Any
-from Classes import Structural_info, Actions, LikelihoodRating, Moderate, RiskRanking, requirements, Info, Location, Images, InspectionReport,CompleteReport,Major,Minor
+from Classes import Structural_info, Actions, LikelihoodRating, Moderate, RiskRanking, requirements, Info, Location, Images, InspectionReport,CompleteReport,Major,Minor,Extreme
 
 
 def save_final_reports_to_json(final_reports_data: Dict[str, Any], output_file_path: str) -> None:
@@ -18,9 +18,16 @@ def load_processed_data_pickle(input_file_path: str) -> Dict[str, Any]:
 
 if __name__ == '__main__':
     # Load the DataFrame
-    excel_path = r'C:\Users\aleja\Documents\PDFFF\complete_inspection_report.xlsx'
-    df = pd.read_excel(excel_path)
-    output_file_path = 'grouting_final_inspection_reports_excel.json'
+    #excel_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\complete_defects_list.xlsx'
+    excel_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\New cost\SOJITZ YEARLY STRUCTURAL AUDIT 2024 - ESTIMATED ACTION COSTS.xlsx'
+    _df = pd.read_excel(excel_path,sheet_name="Sheet1")
+    #df = _df[(_df['Risk consequence'] == "Extreme") | (_df['Risk consequence'] == "Major")]
+
+    #df = _df[(_df['Risk consequence'] == "Extreme")]
+    #df = _df[(_df['Risk consequence'] == "Moderate")]
+    df = _df
+    #df = df.sort_values(by='Risk consequence', ascending=True)
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\J450ARP001_Extreme_Major_Defects.json'
     # Initialize an empty list to hold all the created objects, if needed
     all_objects = []
     complete_report = CompleteReport()
@@ -31,7 +38,7 @@ if __name__ == '__main__':
         likelihood_rating = LikelihoodRating(rating=row['Likelyhood'])
         
         # Assuming you have predefined classes for consequences based on their severity
-        consequence_map = {'Major': Major(), 'Moderate': Moderate(), 'Minor': Minor()}
+        consequence_map = {'Major': Major(), 'Moderate': Moderate(), 'Minor': Minor(),'Extreme':Extreme()}
         risk_consequence = consequence_map.get(row['Risk consequence'])  # Defaulting to Moderate if not found
         
         risk_ranking = RiskRanking(likelihood=likelihood_rating, consequence=risk_consequence)
@@ -47,7 +54,7 @@ if __name__ == '__main__':
 
         image_dict = {'1': row.get('Image 1', None), '2': row.get('Image 2', None), '3': row.get('Image 3', None)}
         images = Images(images_dict=image_dict)
-
+        print("1 " , row['Facility'] , row['Area'] ,row['Component'] , row['Location']  )
         location = Location(facility=row['Facility'],location=row['Location'],component=row['Component'],area=row['Area'])
         
         _cost = str(row['Repair Cost'])
@@ -64,7 +71,7 @@ if __name__ == '__main__':
 
         inspection_report = InspectionReport(
         id=_ID,
-        seq_number= row['Seq Number']
+        seq_number= f"{row['Action Code']}{row['Action Level']}-{row['Seq Number']}",
         actions=actions,
         location=location,
         risk_ranking=risk_ranking,

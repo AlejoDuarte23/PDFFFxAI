@@ -6,6 +6,11 @@
 /grout_damges_2/
 /grout_damges/
 /Foundation Erosion/
-
+/Merge_excel
+/Defects_Groups
+/Cost_Estimation
+/Complete_PDFs
+/other
+    
 # File to ignore
 oai_api_key.json

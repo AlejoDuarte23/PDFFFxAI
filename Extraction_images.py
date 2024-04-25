@@ -28,6 +28,7 @@ def load_processed_data_pickle(input_file_path):
     with open(input_file_path, 'rb') as file:
         return pickle.load(file)
 
+
 def process_inspection_data(filepath: str, threshold: int = 500):
     with open(filepath, 'r') as json_file:
         filtered_results = json.load(json_file)
@@ -85,13 +86,42 @@ if  False:
     processed_inspection_data = process_inspection_data(filepath,500)
     output_file_path = 'processed_inspection_data.pkl'  # The file to save to
     save_processed_data_pickle(processed_inspection_data, output_file_path)
-    
+     
 if False:
-    filepath = 'grout_damage.json'  # Ensure this is the correct path to your JSON file
-    processed_inspection_data = process_inspection_data(filepath,500)
-    output_file_path = 'grout_damage_processed_inspection_data.pkl'  # The file to save to
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Grouting_damage\grout_damage.json'  # Ensure this is the correct path to your JSON file
+    processed_inspection_data = process_inspection_data(filepath,100)
+    output_file_path =r'C:\Users\ADMIN\Documents\PDFFFxAI\Grouting_damage\grout_damage_processed_inspection_data.pkl'  # The file to save to
+    save_processed_data_pickle(processed_inspection_data, output_file_path)
+
+if False:
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Soil_erosion\Soil_erosion.json'  # Ensure this is the correct path to your JSON file
+    processed_inspection_data = process_inspection_data(filepath,100)
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Soil_erosion\Soil_erosion_inpsection_data.pkl'
     save_processed_data_pickle(processed_inspection_data, output_file_path)
 
 
+if False:
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\concrete_cracks\con_cracks_images.json' 
+    processed_inspection_data = process_inspection_data(filepath,100)
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\concrete_cracks\con_cracks.pkl'
+    save_processed_data_pickle(processed_inspection_data, output_file_path)
+
+
+if False:
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\permanent_deformation\permanent_deformation_images.json' 
+    processed_inspection_data = process_inspection_data(filepath,100)
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\permanent_deformation\permanent_deformation_reports.pkl'
+    save_processed_data_pickle(processed_inspection_data, output_file_path)
+
+if False:
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Corrosion_sect_loss\Corrosion_sect_loss.json' 
+    processed_inspection_data = process_inspection_data(filepath,500)
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Corrosion_sect_loss\Corrosion_sect_loss_location.pkl'
+    save_processed_data_pickle(processed_inspection_data, output_file_path)
+if False:
+    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Defects_Groups\other\other_images.json' 
+    processed_inspection_data = process_inspection_data(filepath,500)
+    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Defects_Groups\other\other_images.pkl'
+    save_processed_data_pickle(processed_inspection_data, output_file_path)
 
 
