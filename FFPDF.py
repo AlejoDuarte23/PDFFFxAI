@@ -1,10 +1,10 @@
 import os
 import pdfrw
 import json 
+
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import landscape, A3
 from typing import List,Dict
-
 from concurrent.futures import ProcessPoolExecutor
 
 
@@ -195,20 +195,13 @@ def process_reports_and_generate_pdfs_parallel(final_reports_data, output_folder
         for future in futures:
             future.result()  
 
-
-
 def load_inspection_reports_from_json(filepath):
     with open(filepath, 'r') as f:
         data = json.load(f)
     return data     
 
 
-
-
 if __name__ == '__main__':  
-
-    #%% Grouting damage 
-    # Assuming the file is named 'final_inspection_reports.json'
     filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\J450ARP001_Extreme_Major_Defects.json'
     final_reports_data = load_inspection_reports_from_json(filepath)
     output_folder = r'C:\Users\ADMIN\Documents\PDFFFxAI\Complete_PDFs'
@@ -217,6 +210,5 @@ if __name__ == '__main__':
     process_reports_and_generate_pdfs_parallel(final_reports_data, output_folder, template_dir)
     
 
-    #process_reports_and_generate_pdfs(final_reports_data, output_folder,template_dir)
 
 

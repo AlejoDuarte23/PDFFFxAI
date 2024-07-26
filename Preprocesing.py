@@ -60,28 +60,28 @@ def create_info_dict(base_path):
                 final_dict[key]['images'][img_count] = info['path']
     return final_dict
 
+def create_info_dict_path(base_path):
+    final_dict = {}
+    subfolders = [f.path for f in os.scandir(base_path) if f.is_dir()]
+    for folder_path in subfolders:
+        folder_name = os.path.basename(folder_path)
+        images = [os.path.join(folder_path, img) for img in os.listdir(folder_path) if img.upper().endswith('.JPG')]
+        description_key = folder_name.split()[-1]  # Use last word in folder name to distinguish keys
+        for image_path in images:
+            info = get_comments_info(image_path)
+            if info:
+                base_key = info['location']
+                full_key = f"{base_key}.{description_key}"
+                if full_key not in final_dict:
+                    final_dict[full_key] = {'location': info['location'], 'description': info['description'],
+                                            'latitude': info['latitude'], 'longitude': info['longitude'], 'images': {}}
+                img_count = len(final_dict[full_key]['images']) + 1
+                final_dict[full_key]['images'][str(img_count)] = info['path']
+    return final_dict
 
 def save_info_dict(info_dict:Dict,output_file_path:str):
         with open(output_file_path, 'w') as json_file:
             json.dump(info_dict, json_file, indent=4)
-
-
-if False:
-    base_path = "E:\\Damage_in_protective_coating"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = 'damage_in_pc.json'
-    with open(output_file_path, 'w') as json_file:
-        json.dump(info_dict, json_file, indent=4)
-
-    base_path = "E:\\Damage_in_protective_coating"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = 'damage_in_pc.json'
-    with open(output_file_path, 'w') as json_file:
-        json.dump(info_dict, json_file, indent=4)
 
 
 if False:
@@ -93,63 +93,4 @@ if False:
     output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Grouting_damage\grout_damage.json'
     save_info_dict(info_dict,output_file_path)
 
-
-
-
-if False:
-    # create the folder 
-    base_path = r"D:\YLY Defect Groups\Erosion"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Soil_erosion\Soil_erosion.json'
-    save_info_dict(info_dict,output_file_path)
-
-
-if False:
-    # create the folder 
-    base_path = r"D:\YLY Defect Groups\Concrete spalling"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Spalling\Spalling.json'
-    save_info_dict(info_dict,output_file_path)
-
-
-if False:
-    # create the folder 
-    base_path = r"D:\YLY Defect Groups\Concrete cracking"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\concrete_cracks\con_cracks_images.json'
-    save_info_dict(info_dict,output_file_path)
-
-
-if False:
-    # create the folder 
-    base_path = r"D:\YLY Defect Groups\Permanent deformation"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\permanent_deformation\permanent_deformation_images.json'
-    save_info_dict(info_dict,output_file_path)
-
-if False:
-    # create the folder 
-    base_path = r"D:\YLY Defect Groups\Section loss"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Corrosion_sect_loss\Corrosion_sect_loss.json'
-    save_info_dict(info_dict,output_file_path)
-
-if False:
-    # create the folder 
-    base_path = r"D:\YLY Defect Groups\Other"
-    info_dict = create_info_dict(base_path)
-    print(json.dumps(info_dict, indent=4))
-
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Defects_Groups\other\other_images.json'
-    save_info_dict(info_dict,output_file_path)
 

@@ -1,10 +1,10 @@
 
 import pandas as pd
 import json
-import numpy as np
 import pickle
+
 from typing import Dict, Any
-from Classes import Structural_info, Actions, LikelihoodRating, Moderate, RiskRanking, requirements, Info, Location, Images, InspectionReport,CompleteReport,Major,Minor,Extreme
+from Classes import Structural_info,Actions, LikelihoodRating, Moderate, RiskRanking, requirements, Info, Location, Images, InspectionReport,CompleteReport,Major,Minor,Extreme
 
 
 def save_final_reports_to_json(final_reports_data: Dict[str, Any], output_file_path: str) -> None:
@@ -18,20 +18,14 @@ def load_processed_data_pickle(input_file_path: str) -> Dict[str, Any]:
 
 if __name__ == '__main__':
     # Load the DataFrame
-    #excel_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\complete_defects_list.xlsx'
     excel_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\New cost\SOJITZ YEARLY STRUCTURAL AUDIT 2024 - ESTIMATED ACTION COSTS.xlsx'
-    _df = pd.read_excel(excel_path,sheet_name="Sheet1")
-    #df = _df[(_df['Risk consequence'] == "Extreme") | (_df['Risk consequence'] == "Major")]
-
-    #df = _df[(_df['Risk consequence'] == "Extreme")]
-    #df = _df[(_df['Risk consequence'] == "Moderate")]
-    df = _df
-    #df = df.sort_values(by='Risk consequence', ascending=True)
+    df = pd.read_excel(excel_path,sheet_name="Sheet1")
     output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Merge_excel\J450ARP001_Extreme_Major_Defects.json'
-    # Initialize an empty list to hold all the created objects, if needed
+    # Store Object
     all_objects = []
     complete_report = CompleteReport()
     final_reports_data = {}
+
     for index, row in df.iterrows():
         # Create instances of your classes based on the current row
         actions = Actions(action_type=row['Action Type'], action_code=row["Action Code"], action_level=str(row["Action Level"]))
@@ -89,14 +83,8 @@ if __name__ == '__main__':
             "images": json.loads(image_dict)['images_dict']
         }
         
-
         complete_report.append_report(inspection_report)
         final_reports_data[_ID] = combined_data
-        
-
-
 
         save_final_reports_to_json(final_reports_data, output_file_path)
         complete_report.compute_ids()
-
-

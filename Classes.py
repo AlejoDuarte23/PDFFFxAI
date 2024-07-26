@@ -2,8 +2,6 @@ from pydantic import BaseModel , Field
 from typing import Literal,Union,Dict,Iterable,Optional,List
 import pandas as pd 
 
-
-
 class Actions(BaseModel):
     action_type: Literal['Protective Coating', 'Steel Corrosion', 'Steel Damage', 'Structural Bolts', 'Structural Welds', 'Design', 'Safety Machinery', 'Concrete Finish', 'Concrete Cracking', 'Concrete Drummy', 'Concrete Spalling', 'Reinforcement Corrosion', 'Embankments', 'Retaining Walls', 'Cathodic Protection', 'Facing Panels', 'Soil Reinforcement', 'Earth Wall Drainage']
     action_code: Literal['PC', 'SC', 'ST', 'SB', 'SW', 'DE', 'SM', 'CF', 'CC', 'CD', 'CS', 'CR', 'EMB', 'RW', 'CP', 'EWF', 'EWS', 'EWD']

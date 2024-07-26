@@ -1,14 +1,10 @@
 import json 
 import numpy as np
 import pickle
-from Classes import Structural_info,Actions,LikelihoodRating,Minor,RiskRanking,requirements,Info,Location,Images,InspectionReport
+import pandas as pd
+from Classes import Location,Images
 from Extraction_test import  gextraction
-from pydantic import ValidationError,BaseModel
-from instructor import llm_validator
-
-
-
-#%%  extract :
+from pydantic import ValidationError
 
 
 def cost()->str:
@@ -18,8 +14,6 @@ def cost()->str:
     cost = np.random.normal(mean_cost, std_dev_cost)
     return f"{cost:.2f}"
  
-
-
 def save_processed_data_pickle(processed_data, output_file_path):
     with open(output_file_path, 'wb') as file:
         pickle.dump(processed_data, file)
@@ -59,11 +53,12 @@ def process_inspection_data(filepath: str, threshold: int = 500):
                         "Location": location_instance,
                         "Images": images_instance
                     }
-                    print(location_instance)  # Assuming you want to print the location instances processed
-                    id_counter += 1  # Increment ID for the next entry
+                    print(location_instance)  
+                    id_counter += 1  
 
                     if id_counter > threshold:  # Adjust as needed
                         break
+        
         except (AssertionError, ValidationError, KeyError) as e:
             print(f"Problem processing entry {key}: {str(e)}")
             problematic_entries[key] = value
@@ -74,54 +69,27 @@ def process_inspection_data(filepath: str, threshold: int = 500):
         if id_counter > threshold:
             break
 
-    # Optionally, save the problematic entries to a file
     with open('problematic_entries.json', 'w') as outfile:
         json.dump(problematic_entries, outfile, indent=4)
 
     return processed_data
 
+def convert_to_excel(data: dict)-> None:
+    list_of_location = []
+    for key in data : 
+        inner_dict = data[key]
+        pydantic_model = inner_dict["Location"]
+        
+        list_of_location.append([pydantic_model.facility,pydantic_model.area, pydantic_model.component])
+
+    df = pd.DataFrame(list_of_location,columns=["facility","Area","Component"])
+    df.to_excel(excel_writer="location_soil_damage.xlsx",index=False)
+
+    
 
 if  False:
     filepath = 'damage_in_pc.json'  # Ensure this is the correct path to your JSON file
     processed_inspection_data = process_inspection_data(filepath,500)
     output_file_path = 'processed_inspection_data.pkl'  # The file to save to
     save_processed_data_pickle(processed_inspection_data, output_file_path)
-     
-if False:
-    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Grouting_damage\grout_damage.json'  # Ensure this is the correct path to your JSON file
-    processed_inspection_data = process_inspection_data(filepath,100)
-    output_file_path =r'C:\Users\ADMIN\Documents\PDFFFxAI\Grouting_damage\grout_damage_processed_inspection_data.pkl'  # The file to save to
-    save_processed_data_pickle(processed_inspection_data, output_file_path)
-
-if False:
-    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Soil_erosion\Soil_erosion.json'  # Ensure this is the correct path to your JSON file
-    processed_inspection_data = process_inspection_data(filepath,100)
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Soil_erosion\Soil_erosion_inpsection_data.pkl'
-    save_processed_data_pickle(processed_inspection_data, output_file_path)
-
-
-if False:
-    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\concrete_cracks\con_cracks_images.json' 
-    processed_inspection_data = process_inspection_data(filepath,100)
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\concrete_cracks\con_cracks.pkl'
-    save_processed_data_pickle(processed_inspection_data, output_file_path)
-
-
-if False:
-    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\permanent_deformation\permanent_deformation_images.json' 
-    processed_inspection_data = process_inspection_data(filepath,100)
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\permanent_deformation\permanent_deformation_reports.pkl'
-    save_processed_data_pickle(processed_inspection_data, output_file_path)
-
-if False:
-    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Corrosion_sect_loss\Corrosion_sect_loss.json' 
-    processed_inspection_data = process_inspection_data(filepath,500)
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Corrosion_sect_loss\Corrosion_sect_loss_location.pkl'
-    save_processed_data_pickle(processed_inspection_data, output_file_path)
-if False:
-    filepath = r'C:\Users\ADMIN\Documents\PDFFFxAI\Defects_Groups\other\other_images.json' 
-    processed_inspection_data = process_inspection_data(filepath,500)
-    output_file_path = r'C:\Users\ADMIN\Documents\PDFFFxAI\Defects_Groups\other\other_images.pkl'
-    save_processed_data_pickle(processed_inspection_data, output_file_path)
-
-
+    convert_to_excel(process_inspection_data)
